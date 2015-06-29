@@ -1,0 +1,51 @@
+<br>
+<!-- Page Heading -->
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Exercise 2
+            <small>Github</small>
+        </h1>
+        <h2>Repositories</h2>
+    </div>
+</div>
+<!-- /.row -->
+<h4>
+    Search: <input type="text" ng-model="test">
+</h4>
+<!-- Project One -->
+<div class="col col-md-12">
+    <div class="col col-md-3" >
+        <img alt="" class="avatar" height="230" src="{{userdata.avatar_url}}" width="230">
+        <h1>{{userdata.name}}</h1>
+        <hr>
+        <h5>Joined on <span class="glyphicon glyphicon-time" aria-hidden="true"></span>&nbsp;{{userdata.created_at| date}}</h5>
+        <hr>
+        <div class="col col-md-6 text-center" >
+            <div>{{userdata.followers}}</div>
+            <b>Followers</b>
+        </div>
+        <div class="col col-md-6 text-center" >
+            <div>{{userdata.following}}</div>
+            <b>Following</b>
+        </div>
+
+    </div>
+    <div class="col col-md-9">
+        <div ng-repeat="r in repositories| filter:test " class="col col-lg-12">
+            <div class="row">
+                <div class="col col-md-9">
+                    <h3><a href="#repositories/rep/{{r.name}}">{{r.name}}</a></h3>
+                    <h4>{{r.description}}</h4>
+                    <h5>Updated: {{r.updated_at| date}}</h5>
+                </div>
+                <div class="col col-md-3">
+                    <h5><b>{{r.language}}</b></h5>
+                    <h6><span class="glyphicon glyphicon-star" aria-hidden="true"></span>&nbsp;{{r.stargazers_count}}</h6>
+                    <h6><span class="glyphicon glyphicon-paperclip" aria-hidden="true"></span>&nbsp;{{r.forks_count}}</h6>
+                </div>
+            </div>
+            <hr >
+        </div>
+        <!-- /.row -->
+    </div>
+</div>
